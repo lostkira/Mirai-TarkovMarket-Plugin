@@ -18,10 +18,10 @@ public class Utils {
         return forestConfiguration.createInstance(HttpClient.class);
     }
 
-    public static ArrayList parseItemBean(String result){
+    public static ArrayList<ItemBean> parseItemBean(String result){
         JsonArray jsonArray = JsonParser.parseString(result).getAsJsonArray();
         Gson gson = new Gson();
-        ArrayList<ItemBean> itemBeanList = new ArrayList<>();
+        ArrayList<ItemBean> itemBeanList = new ArrayList<ItemBean>();
         for (JsonElement item : jsonArray){
             ItemBean itemBean = gson.fromJson(item, ItemBean.class);
             itemBeanList.add(itemBean);

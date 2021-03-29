@@ -19,11 +19,14 @@ public class Main {
         try {
             result = httpClient.getByKeyword("btc", DEFAULT_LANGUAGE);
         }catch (ForestNetworkException e){
-            int status = e.getStatusCode();
+            /*int status = e.getStatusCode();
             ForestResponse response = e.getResponse();
             System.out.println("StatusCode: " + status);
             System.out.println(response.getContent());
-            System.out.println(response.getRequest());
+            System.out.println(response.getRequest());*/
+            System.out.println("请求出错");
+        }catch (Exception exception){
+            System.out.println("请求错误");
         }
 
         ArrayList<ItemBean> itemBeanList = Utils.parseItemBean(result);

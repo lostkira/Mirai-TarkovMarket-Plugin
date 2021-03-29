@@ -6,6 +6,7 @@ import net.mamoe.mirai.console.command.SimpleCommand
 import net.mamoe.mirai.console.plugin.jvm.JvmPluginDescription
 import net.mamoe.mirai.console.plugin.jvm.KotlinPlugin
 
+@net.mamoe.mirai.console.util.ConsoleExperimentalApi
 object TarkovPluginMain : KotlinPlugin(
     JvmPluginDescription.loadFromResource()
 ) {
@@ -51,20 +52,24 @@ object TarkovPluginMain : KotlinPlugin(
         @SubCommand
         suspend fun CommandSender.search(keyword:String){
             sendMessage("正在查询中...")
-            val searchResult = ItemInfo(keyword, "cn")
             val tempString = StringBuilder()
-            if (searchResult.itemBeanList.size != 0){
-                for (index in searchResult.itemBeanList.indices){
-                    tempString.appendLine("物品名：" + searchResult.getNameByIndex(index))
-                    tempString.appendLine("市场价格：" + searchResult.getPriceByIndex(index) + searchResult.getTraderPriceCurByIndex(index))
-                    tempString.appendLine("商人收购价格：" + searchResult.getTraderNameByIndex(index)+ " " +searchResult.getTraderPriceByIndex(index) +
-                            searchResult.getTraderPriceCurByIndex(index))
-                    tempString.append("\n")
+            try {
+                val searchResult = ItemInfo(keyword, "cn")
+                if (searchResult.itemBeanList.size != 0){
+                    for (index in searchResult.itemBeanList.indices){
+                        tempString.appendLine("物品名：" + searchResult.getNameByIndex(index))
+                        tempString.appendLine("市场价格：" + searchResult.getPriceByIndex(index) + searchResult.getTraderPriceCurByIndex(index))
+                        tempString.appendLine("商人收购价格：" + searchResult.getTraderNameByIndex(index)+ " " +searchResult.getTraderPriceByIndex(index) +
+                                searchResult.getTraderPriceCurByIndex(index))
+                        tempString.append("\n")
+                    }
+                    tempString.deleteAt(tempString.length - 1)
+                    tempString.deleteAt(tempString.length - 1)
+                }else{
+                    tempString.append("!没有搜索到相关物品!")
                 }
-                tempString.deleteAt(tempString.length - 1)
-                tempString.deleteAt(tempString.length - 1)
-            }else{
-                tempString.append("!没有搜索到相关物品!")
+            } catch (e: Exception) {
+                tempString.append("！请求出错了，请再试一次吧～")
             }
             sendMessage(String(tempString))
         }

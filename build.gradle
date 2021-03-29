@@ -4,11 +4,11 @@ plugins {
 
     id 'org.jetbrains.kotlin.jvm' version '1.4.31'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.4.31'
-    id 'net.mamoe.mirai-console' version '2.4.2'
+    id 'net.mamoe.mirai-console' version '2.5.0'
 }
 
 group 'tech.ezrealc'
-version '0.1.0'
+version '0.1.1'
 
 repositories {
     mavenCentral()
