@@ -20,9 +20,9 @@ Clone并通过IntelliJ IDEA导入本项目，执行buildPlugin任务即可
 
 ## 使用
 目前只有一个主要命令
-### /eft search <搜索关键字>（中文关键字）
+### /eft search <搜索关键字>
 
-返回[Tarkov Market](https://tarkov-market.com)上前三个搜索结果的市场价格和最高商人收购价格
+关键字使用中文，返回[Tarkov Market](https://tarkov-market.com)上前三个搜索结果的市场价格和最高商人收购价格
 
 ## 关于
 本项目跟随[Mirai](https://github.com/mamoe/mirai) 使用 `AGPLv3` 开源
