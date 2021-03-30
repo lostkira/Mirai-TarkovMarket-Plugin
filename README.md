@@ -17,7 +17,7 @@ Clone并通过IntelliJ IDEA导入本项目，执行buildPlugin任务即可
 1. 自行构建本项目或在Releases页面下载预构建的版本
 2. 将插件放入Mirai-Console的plugins目录
 3. 启动Mirai-Console
-4. **第一次使用启动后需要在config配置文件中填写[Tarkov Market API](https://tarkov-market.com/dev/api) KEY，*注意请直接填写字符串，不含引号* **
+4. **第一次使用启动后需要在config配置文件中填写[Tarkov Market API](https://tarkov-market.com/dev/api) KEY，*注意请直接填写字符串，不含引号***
 5. 在Mirai-Console中配置命令执行权限
 
 ## 使用
