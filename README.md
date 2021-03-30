@@ -3,6 +3,8 @@
 
 A mirai-console plugin used to collect data from [Tarkov Market](https://tarkov-market.com) and forwarding result to QQ groups
 
+## [更新日志](https://github.com/EzrealC/Mirai-TarkovMarket-Plugin/blob/master/CHANGELOG.md)
+
 ## 环境
 * JRE: 11+
 * Mirai-Console: 2.5.0
