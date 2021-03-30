@@ -24,4 +24,8 @@ public class ItemBean {
     private String img;
     private String imgBig;
     private String reference;
+
+    public ItemBean () {
+    }
+
 }

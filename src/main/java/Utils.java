@@ -9,7 +9,6 @@ import com.google.gson.JsonParser;
 import java.util.ArrayList;
 
 public class Utils {
-    public static final String uid = "5ac84494-465a-424a-b36e-fe22869ba5ec";
 
     public static HttpClient getHttpClient(){
         ForestConfiguration forestConfiguration = ForestConfiguration.configuration();
@@ -21,11 +20,12 @@ public class Utils {
     public static ArrayList<ItemBean> parseItemBean(String result){
         JsonArray jsonArray = JsonParser.parseString(result).getAsJsonArray();
         Gson gson = new Gson();
-        ArrayList<ItemBean> itemBeanList = new ArrayList<ItemBean>();
+        ArrayList<ItemBean> itemBeanList = new ArrayList<>();
         for (JsonElement item : jsonArray){
             ItemBean itemBean = gson.fromJson(item, ItemBean.class);
             itemBeanList.add(itemBean);
         }
         return itemBeanList;
     }
+
 }
